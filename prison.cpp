@@ -13,20 +13,22 @@ void solve(){
         printf("total spend %d", total);
     }
     else{
-        for(int i=0;i<(Q+1)/2;i++){
-            int a=-1, b=0;
+        int a=-1, b=0, save =0;
+        for(int i=0;i<Q-1;i++){
             if(v1[i+b]>P-v1[Q-i+a]){
-                sum +=sum+v1[i];
-                v1[i+1] -= v1[i]+1;
+                sum +=v1[i+b];
+                save +=sum;
+                v1[i+b+1] -= v1[i+b]+1;
                 a +=1;
             }
             else{
-                sum +=sum+P-v1[Q-1-i];
+                sum +=P-v1[Q+a-i];
+                save +=sum;
                 P=v1[Q-1-i]-1;
                 b -=1;
             }
         }
-    total -= sum;
+    total -= save;
     printf("total spend %d", total);
     }
 }
