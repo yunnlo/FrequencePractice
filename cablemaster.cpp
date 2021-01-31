@@ -5,7 +5,7 @@ using namespace std;
 
 const int max_n =10000;
 int N, K;
-int L[max_n];
+float L[max_n];
 
 bool C (double X){
     int num =0;
@@ -21,12 +21,12 @@ void solve(){
        if(C(mid)) lb=mid;
        else ub=mid;
    }
-   printf("%.2f",ub);
+   printf("%.2f",(int)(ub*100)/100);
 }
 int main(){
     scanf("%d %d", &N, &K);
     for(int i=0; i<N;i++){
-        scanf("%d", &L[i]);
+        scanf("%f", &L[i]);
     }
     solve();
     return 0;
