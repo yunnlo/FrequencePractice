@@ -11,7 +11,6 @@ bool C (double X){
     int num =0;
     for (int i=0;i<N;i++){
         num += (int)(L[i]/X);
-        printf("%d", num);
     }
     return num>=K;
 }
