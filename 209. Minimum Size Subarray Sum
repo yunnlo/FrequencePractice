@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int sum =0;
+        int result =nums.size()+1;
+        int i=0;
+        int subarraylen=0;
+        for(int j =0; j< nums.size(); j++){
+            sum += nums[j];
+            while(sum>=target){
+                subarraylen = j-i+1;
+                if (result>subarraylen){
+                    result = subarraylen;
+                }
+                sum -= nums[i++];
+            }
+        }
+        if (result == nums.size()+1){
+            result=0;
+        }
+        return result;
+        
+    }
+            
+};
